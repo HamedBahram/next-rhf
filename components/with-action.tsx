@@ -5,15 +5,9 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { addEntry } from '@/app/_actions'
 
-const FormDataSchema = z.object({
-  name: z.string().nonempty('Name is required.'),
-  message: z
-    .string()
-    .nonempty('Message is required.')
-    .min(6, { message: 'Message must be at least 6 characters.' })
-})
+import { addEntry } from '@/app/_actions'
+import { FormDataSchema } from '@/lib/schema'
 
 type Inputs = z.infer<typeof FormDataSchema>
 
